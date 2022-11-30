@@ -1,0 +1,15 @@
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.csproj.AssemblyReference.cache
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.AssemblyInfoInputs.cache
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.AssemblyInfo.cs
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.csproj.CoreCompileInputs.cache
+C:\dev\MercadinhoBigBoom\bin\Debug\net6.0\MercadinhoBigBoom.exe
+C:\dev\MercadinhoBigBoom\bin\Debug\net6.0\MercadinhoBigBoom.deps.json
+C:\dev\MercadinhoBigBoom\bin\Debug\net6.0\MercadinhoBigBoom.runtimeconfig.json
+C:\dev\MercadinhoBigBoom\bin\Debug\net6.0\MercadinhoBigBoom.dll
+C:\dev\MercadinhoBigBoom\bin\Debug\net6.0\MercadinhoBigBoom.pdb
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.dll
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\refint\MercadinhoBigBoom.dll
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.pdb
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\MercadinhoBigBoom.genruntimeconfig.cache
+C:\dev\MercadinhoBigBoom\obj\Debug\net6.0\ref\MercadinhoBigBoom.dll
