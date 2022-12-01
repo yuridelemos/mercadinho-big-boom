@@ -21,8 +21,8 @@ namespace MercadinhoBigBoom.ContentContext
       CompanyRepresentative = companyRepresentative;
     }
 
-    public string CNPJ { get; set; }
-    public EContentBranch LineBusiness { get; set; }
-    public Representative CompanyRepresentative { get; set; }
+    public string CNPJ { get; private set; }
+    public EContentBranch LineBusiness { get; private set; }
+    public Representative CompanyRepresentative { get; private set; }
   }
 }

@@ -9,13 +9,27 @@ namespace MercadinhoBigBoom.ContentContext
 {
   class Employee : Registration
   {
-    public Registration RegistrationData { get; set; }
-    public string CPF { get; set; }
-    public EContentSector Ocuppation { get; set; }
-    public EcontentWorkShift Shift { get; set; }
-    public double Salary { get; set; }
-    public int Absences { get; set; }
-    public DateTime DateAdmission { get; set; }
-    public DateTime DateResignation { get; set; }
+    public Employee(string name, string phoneNumber, string address, string cPF, EContentSector ocuppation, 
+     EcontentWorkShift shift, double salary, DateTime dateAdmission)
+    {
+       Name = name;
+       PhoneNumber = phoneNumber;
+       Address = address;
+       CPF = cPF;
+       Ocuppation = ocuppation;
+       Shift = shift;
+       Salary = salary;
+       Absences = 0;
+       DateAdmission = dateAdmission;
+       DateResignation = null;
+     }
+
+    public string CPF { get; private set; }
+    public EContentSector Ocuppation { get; private set; }
+    public EcontentWorkShift Shift { get; private set; }
+    public double Salary { get; private set; }
+    public int Absences { get; private set; }
+    public DateTime DateAdmission { get; private set; }
+    public DateTime? DateResignation { get; private set; }
   }
 }

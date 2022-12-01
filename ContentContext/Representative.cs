@@ -7,7 +7,7 @@ namespace MercadinhoBigBoom.ContentContext
         Name = name;
         PhoneNumber = phoneNumber;
     }
-    public string Name { get; set; }
-    public string PhoneNumber { get; set; }
+    public string Name { get; private set; }
+    public string PhoneNumber { get; private set; }
   }
 }
