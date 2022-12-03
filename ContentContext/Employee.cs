@@ -7,22 +7,22 @@ using MercadinhoBigBoom.ContentContext.Enum;
 
 namespace MercadinhoBigBoom.ContentContext
 {
-  class Employee : Registration
+  public class Employee : Registration
   {
-    public Employee(string name, string phoneNumber, string address, string cPF, EContentSector ocuppation, 
+    public Employee(string name, string phoneNumber, string address, string cPF, EContentSector ocuppation,
      EcontentWorkShift shift, double salary, DateTime dateAdmission)
     {
-       Name = name;
-       PhoneNumber = phoneNumber;
-       Address = address;
-       CPF = cPF;
-       Ocuppation = ocuppation;
-       Shift = shift;
-       Salary = salary;
-       Absences = 0;
-       DateAdmission = dateAdmission;
-       DateResignation = null;
-     }
+      Name = name;
+      PhoneNumber = phoneNumber;
+      Address = address;
+      CPF = cPF;
+      Ocuppation = ocuppation;
+      Shift = shift;
+      Salary = salary;
+      Absences = 0;
+      DateAdmission = dateAdmission;
+      DateResignation = null;
+    }
 
     public string CPF { get; private set; }
     public EContentSector Ocuppation { get; private set; }

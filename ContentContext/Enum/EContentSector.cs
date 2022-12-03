@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MercadinhoBigBoom.ContentContext.Enum
 {
-  enum EContentSector
+  public enum EContentSector
   {
     Maganer = 1,
     Butcher = 2,

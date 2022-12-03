@@ -1,6 +1,6 @@
 namespace MercadinhoBigBoom.ContentContext.Enum
 {
-  enum EcontentWorkShift
+  public enum EcontentWorkShift
   {
     Morning = 1,
     Night = 2

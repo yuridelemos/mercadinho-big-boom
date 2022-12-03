@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MercadinhoBigBoom.ContentContext;
 using MercadinhoBigBoom.ContentContext.Enum;
 
 namespace MercadinhoBigBoom.ContentContext
 {
-  class Company : Registration
+  public class Company : Registration, IEquatable<Company>
   {
-    public Company(string name, string phoneNumber, string address, 
+    public Company(string name, string phoneNumber, string address,
         string cnpj, EContentBranch lineBusiness, Representative companyRepresentative)
     {
       Name = name;
@@ -21,8 +20,18 @@ namespace MercadinhoBigBoom.ContentContext
       CompanyRepresentative = companyRepresentative;
     }
 
-    public string CNPJ { get; private set; }
-    public EContentBranch LineBusiness { get; private set; }
-    public Representative CompanyRepresentative { get; private set; }
+    public string CNPJ { get; set; }
+    public EContentBranch LineBusiness { get; set; }
+    public Representative CompanyRepresentative { get; set; }
+
+    public bool Equals(Company? other)
+    {
+      return Id == other.Id;
+    }
+
+    private static void CheckSupplier()
+    {
+
+    }
   }
 }
