@@ -7,7 +7,7 @@ using MercadinhoBigBoom.ContentContext.Enum;
 
 namespace MercadinhoBigBoom.ContentContext
 {
-  public class Employee : Registration
+  public class Employee : Registration, IEquatable<Employee>
   {
     public Employee(string name, string phoneNumber, string address, string cPF, EContentSector ocuppation,
      EcontentWorkShift shift, double salary, DateTime dateAdmission)
@@ -31,5 +31,10 @@ namespace MercadinhoBigBoom.ContentContext
     public int Absences { get; private set; }
     public DateTime DateAdmission { get; private set; }
     public DateTime? DateResignation { get; private set; }
+
+    public bool Equals(Employee? other)
+    {
+      return Name == other.Name && CPF == other.CPF;
+    }
   }
 }

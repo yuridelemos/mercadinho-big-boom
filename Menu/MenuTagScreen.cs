@@ -22,7 +22,7 @@ namespace MercadinhoBigBoom.Menu
         case 1: SuplierRegistrationScreen(); break;
         case 2: EmployeeRegistrationScreen(); break;
         case 3: ReadListCompanies(); break;
-        case 4: Console.WriteLine("Teste4"); break;
+        case 4: ReadListEmployees(); break;
         case 5: Console.WriteLine("Teste5"); break;
         case 6: Console.WriteLine("Teste6"); break;
       }
@@ -101,16 +101,33 @@ namespace MercadinhoBigBoom.Menu
 
       var employee = new Employee(Name, PhoneNumber, Address, CPF,
           (EContentSector)Ocuppation, (EcontentWorkShift)Shift, Salary, DateAdmission);
+
+      if (Employees.Count != 0)
+        foreach (var itens in Employees.ToList())
+        {
+          if (itens.Equals(employee))
+          {
+            Console.WriteLine("Funcionário já possui cadastrado");
+            Thread.Sleep(1000);
+            EmployeeRegistrationScreen();
+          }
+        }
       Employees.Add(employee);
 
-      Console.WriteLine($"Nome: {employee.Name}");
-      Console.WriteLine($"Número de telefone: {employee.PhoneNumber}");
-      Console.WriteLine($"Endereço: {employee.Address}");
-      Console.WriteLine($"CPF: {employee.CPF}");
-      Console.WriteLine($"Ocupação: {employee.Ocuppation}");
-      Console.WriteLine($"Turno: {employee.Shift}");
-      Console.WriteLine($"Salário: {employee.Salary}");
-      Console.WriteLine($"Data de admissão: {employee.DateAdmission.ToString("dd/MM/yyyy")}");
+      Console.WriteLine("=================================");
+      Console.WriteLine("Funcionário cadastrado com sucesso");
+      Console.WriteLine("=================================");
+
+      Show();
+
+      // Console.WriteLine($"Nome: {employee.Name}");
+      // Console.WriteLine($"Número de telefone: {employee.PhoneNumber}");
+      // Console.WriteLine($"Endereço: {employee.Address}");
+      // Console.WriteLine($"CPF: {employee.CPF}");
+      // Console.WriteLine($"Ocupação: {employee.Ocuppation}");
+      // Console.WriteLine($"Turno: {employee.Shift}");
+      // Console.WriteLine($"Salário: {employee.Salary}");
+      // Console.WriteLine($"Data de admissão: {employee.DateAdmission.ToString("dd/MM/yyyy")}");
     }
     public static void ReadListCompanies()
     {
@@ -122,6 +139,20 @@ namespace MercadinhoBigBoom.Menu
       }
       Show();
     }
+
+    public static void ReadListEmployees()
+    {
+      foreach (var employee in Employees)
+      {
+        Console.WriteLine($"Nome: {employee.Name}");
+        Console.WriteLine($"CPF: {employee.CPF}");
+
+      }
+      Show();
+    }
   }
-  //Trocar o nível de acesso das funções
+  // Trocar o nível de acesso das funções
+  // Colocar a checagem de cadastro (Equals) na função que o fornecedor e o funcionário 
+  // herda e usá-lo com virtual
+
 }
