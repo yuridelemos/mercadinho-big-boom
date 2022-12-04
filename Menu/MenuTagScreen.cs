@@ -48,24 +48,23 @@ namespace MercadinhoBigBoom.Menu
       var companyRepresentative = new Representative(CompanyRepresentativeName, CompanyRepresentativePhoneNumber);
       var company = new Company(Name, PhoneNumber, Address, CNPJ, (EContentBranch)LineBusiness, companyRepresentative);
 
-      foreach (var itens in Companies)
-      {
-        System.Console.WriteLine("BATATAAAAAAAA");
+      if (Companies.Count != 0)
+        foreach (var itens in Companies.ToList())
+        {
+          if (itens.Equals(company))
+          {
+            Console.WriteLine("Empresa já possui cadastrado");
+            Thread.Sleep(1000);
+            SuplierRegistrationScreen();
+          }
+        }
+      Companies.Add(company);
 
-        if (itens.Equals(company))
-        {
-          Console.WriteLine("Empresa já possui cadastrado");
-          Thread.Sleep(1000);
-          SuplierRegistrationScreen();
-        }
-        else
-        {
-          Companies.Add(company);
-          Console.WriteLine("=================================");
-          Console.WriteLine("Fornecedor cadastrado com sucesso");
-          Console.WriteLine("=================================");
-        }
-      }
+      Console.WriteLine("=================================");
+      Console.WriteLine("Fornecedor cadastrado com sucesso");
+      Console.WriteLine("=================================");
+
+      Show();
 
       // Console.WriteLine($"Nome: {company.Name}");
       // Console.WriteLine($"Número de telefone: {company.PhoneNumber}");
@@ -78,7 +77,6 @@ namespace MercadinhoBigBoom.Menu
       // //Console.Clear();
 
       // Thread.Sleep(2000);
-      MenuTagScreen.Show();
     }
 
     private static void EmployeeRegistrationScreen()
@@ -116,12 +114,13 @@ namespace MercadinhoBigBoom.Menu
     }
     public static void ReadListCompanies()
     {
-      System.Console.WriteLine("BATATAAAAAAAA");
       foreach (var company in Companies)
       {
         Console.WriteLine($"Nome: {company.Name}");
         Console.WriteLine($"CPF: {company.CNPJ}");
+
       }
+      Show();
     }
   }
   //Trocar o nível de acesso das funções

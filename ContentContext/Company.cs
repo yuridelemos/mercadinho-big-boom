@@ -26,12 +26,7 @@ namespace MercadinhoBigBoom.ContentContext
 
     public bool Equals(Company? other)
     {
-      return Id == other.Id;
-    }
-
-    private static void CheckSupplier()
-    {
-
+      return Name == other.Name && CNPJ == other.CNPJ;
     }
   }
 }
