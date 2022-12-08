@@ -12,5 +12,6 @@ namespace MercadinhoBigBoom.ContentContext
     public string Name { get; set; }// Começo
     public string PhoneNumber { get; set; } // dos dados
     public string Address { get; set; } // Para cadastro 
+    public string Password { get; set; } //
   }
 }

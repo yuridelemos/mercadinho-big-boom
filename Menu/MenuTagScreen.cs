@@ -9,7 +9,9 @@ namespace MercadinhoBigBoom.Menu
     public static List<Employee> Employees = new List<Employee>();
     static public void Show()
     {
-      Console.WriteLine("Menu Principal");
+      Console.WriteLine("|==================================|");
+      Console.WriteLine("|          Menu Principal          |");
+      Console.WriteLine("|==================================|");
       Console.WriteLine("(1) - Inscrição de Fornecedor");
       Console.WriteLine("(2) - Inscrição de Funcionário");
       Console.WriteLine("(3) - Visualizar Fornecedores");
@@ -23,13 +25,16 @@ namespace MercadinhoBigBoom.Menu
         case 2: EmployeeRegistrationScreen(); break;
         case 3: ReadListCompanies(); break;
         case 4: ReadListEmployees(); break;
-        case 5: Console.WriteLine("Teste5"); break;
+        case 5: System.Console.WriteLine("Batata"); break;
         case 6: Console.WriteLine("Teste6"); break;
       }
     }
     private static void SuplierRegistrationScreen()
     {
-      Console.WriteLine("Dados da empresa");
+      Console.Clear();
+      Console.WriteLine("|==================================|");
+      Console.WriteLine("|    Insira os dados da empresa    |");
+      Console.WriteLine("|==================================|");
       Console.Write("Nome: ");
       var Name = Console.ReadLine();
       Console.Write("Número de telefone: ");
@@ -53,16 +58,16 @@ namespace MercadinhoBigBoom.Menu
         {
           if (itens.Equals(company))
           {
-            Console.WriteLine("Empresa já possui cadastrado");
+            Console.WriteLine("Fornecedor já possui cadastrado");
             Thread.Sleep(1000);
             SuplierRegistrationScreen();
           }
         }
       Companies.Add(company);
 
-      Console.WriteLine("=================================");
-      Console.WriteLine("Fornecedor cadastrado com sucesso");
-      Console.WriteLine("=================================");
+      Console.WriteLine("|=================================|");
+      Console.WriteLine("|Fornecedor cadastrado com sucesso|");
+      Console.WriteLine("|=================================|");
 
       Show();
 
@@ -81,13 +86,18 @@ namespace MercadinhoBigBoom.Menu
 
     private static void EmployeeRegistrationScreen()
     {
-      Console.WriteLine("Dados do funcionário");
+      Console.Clear();
+      Console.WriteLine("|=================================|");
+      Console.WriteLine("|  Insira os dados da funcionário |");
+      Console.WriteLine("|=================================|");
       Console.Write("Nome: ");
       var Name = Console.ReadLine();
       Console.Write("Número de telefone: ");
       var PhoneNumber = Console.ReadLine();
       Console.Write("Endereço: ");
       var Address = Console.ReadLine();
+      Console.Write("Senha: ");
+      var Password = Console.ReadLine();
       Console.Write("CPF: ");
       var CPF = Console.ReadLine();
       Console.Write("Ocupação: ");
@@ -99,7 +109,7 @@ namespace MercadinhoBigBoom.Menu
       Console.Write("Data de admissão (DD/MM/YYYY): ");
       var DateAdmission = DateTime.Parse(Console.ReadLine());
 
-      var employee = new Employee(Name, PhoneNumber, Address, CPF,
+      var employee = new Employee(Name, PhoneNumber, Address, Password, CPF,
           (EContentSector)Ocuppation, (EcontentWorkShift)Shift, Salary, DateAdmission);
 
       if (Employees.Count != 0)
@@ -113,10 +123,11 @@ namespace MercadinhoBigBoom.Menu
           }
         }
       Employees.Add(employee);
-
-      Console.WriteLine("=================================");
-      Console.WriteLine("Funcionário cadastrado com sucesso");
-      Console.WriteLine("=================================");
+      Thread.Sleep(1000);
+      Console.Clear();
+      Console.WriteLine("|==================================|");
+      Console.WriteLine("|Funcionário cadastrado com sucesso|");
+      Console.WriteLine("|==================================|");
 
       Show();
 
@@ -131,10 +142,10 @@ namespace MercadinhoBigBoom.Menu
     }
     public static void ReadListCompanies()
     {
+      var contador = 1;
       foreach (var company in Companies)
       {
-        Console.WriteLine($"Nome: {company.Name}");
-        Console.WriteLine($"CPF: {company.CNPJ}");
+        Console.WriteLine($"{contador++} Nome: {company.Name} CPF: {company.CNPJ}");
 
       }
       Show();
@@ -142,17 +153,20 @@ namespace MercadinhoBigBoom.Menu
 
     public static void ReadListEmployees()
     {
+      var contador = 1;
       foreach (var employee in Employees)
       {
-        Console.WriteLine($"Nome: {employee.Name}");
-        Console.WriteLine($"CPF: {employee.CPF}");
-
+        Console.WriteLine($"{contador++} Nome: {employee.Name} CPF: {employee.CPF}");
       }
       Show();
     }
+
   }
   // Trocar o nível de acesso das funções
   // Colocar a checagem de cadastro (Equals) na função que o fornecedor e o funcionário 
   // herda e usá-lo com virtual
+  // Usar a mesma ideia de Virtual e colocar um MenuTagScreen herdado em diferentes níveis para dono,
+  // gerente e vendedores
+  // OwnerMenuTagScreen, GerenteMenuTagScreen, SellerMenuTagScreen
 
 }

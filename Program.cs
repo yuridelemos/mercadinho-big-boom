@@ -4,5 +4,5 @@ using MercadinhoBigBoom.ContentContext;
 using MercadinhoBigBoom.ContentContext.Enum;
 
 Console.WriteLine("Hello, World!");
-MenuTagScreen.Show();
+MenuLogin.Login();
 

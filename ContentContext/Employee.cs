@@ -9,12 +9,13 @@ namespace MercadinhoBigBoom.ContentContext
 {
   public class Employee : Registration, IEquatable<Employee>
   {
-    public Employee(string name, string phoneNumber, string address, string cPF, EContentSector ocuppation,
+    public Employee(string name, string phoneNumber, string address, string password, string cPF, EContentSector ocuppation,
      EcontentWorkShift shift, double salary, DateTime dateAdmission)
     {
       Name = name;
       PhoneNumber = phoneNumber;
       Address = address;
+      Password = password;
       CPF = cPF;
       Ocuppation = ocuppation;
       Shift = shift;
@@ -34,7 +35,7 @@ namespace MercadinhoBigBoom.ContentContext
 
     public bool Equals(Employee? other)
     {
-      return Name == other.Name && CPF == other.CPF;
+      return Name == other.Name || CPF == other.CPF;
     }
   }
 }
