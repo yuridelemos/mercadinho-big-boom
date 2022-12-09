@@ -1,5 +1,3 @@
-using MercadinhoBigBoom.ContentContext;
-using MercadinhoBigBoom.ContentContext.Enum;
 
 namespace MercadinhoBigBoom.Menu
 {
