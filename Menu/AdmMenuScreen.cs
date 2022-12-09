@@ -3,7 +3,7 @@ using MercadinhoBigBoom.ContentContext.Enum;
 
 namespace MercadinhoBigBoom.Menu
 {
-  public class MenuTagScreen
+  public class AdmMenuScreen
   {
     public static List<Company> Companies = new List<Company>();
     public static List<Employee> Employees = new List<Employee>();
@@ -25,8 +25,10 @@ namespace MercadinhoBigBoom.Menu
         case 2: EmployeeRegistrationScreen(); break;
         case 3: ReadListCompanies(); break;
         case 4: ReadListEmployees(); break;
-        case 5: System.Console.WriteLine("Batata"); break;
-        case 6: Console.WriteLine("Teste6"); break;
+        default:
+          Console.WriteLine("Opção digita é inválida, por favor tente novamente");
+          Show();
+          break;
       }
     }
     private static void SuplierRegistrationScreen()
@@ -162,11 +164,4 @@ namespace MercadinhoBigBoom.Menu
     }
 
   }
-  // Trocar o nível de acesso das funções
-  // Colocar a checagem de cadastro (Equals) na função que o fornecedor e o funcionário 
-  // herda e usá-lo com virtual
-  // Usar a mesma ideia de Virtual e colocar um MenuTagScreen herdado em diferentes níveis para dono,
-  // gerente e vendedores
-  // OwnerMenuTagScreen, GerenteMenuTagScreen, SellerMenuTagScreen
-
 }

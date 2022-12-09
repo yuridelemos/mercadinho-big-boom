@@ -17,25 +17,20 @@ namespace MercadinhoBigBoom.Menu
       System.Console.Write("Digite o Password: ");
       var Password = Console.ReadLine();
 
-      //   Pessoa pessoa = pessoas.FirstOrDefault(x => x.CPF == CPF && x.Senha == senha);
-      Employee employee = Employees.FirstOrDefault(x => x.CPF == CPF && x.Password == Password);
+      var employee = Employees.FirstOrDefault(x => x.CPF == CPF && x.Password == Password);
 
-      System.Console.WriteLine(employee.Name);
-      System.Console.WriteLine(employee.CPF);
-      MenuTagScreen.Show();
-      var chooser = 0;
-      switch (chooser)
+      switch ((int)employee.Ocuppation)
       {
+        case 0:
+          System.Console.WriteLine("Teste 1");
+          // OwnerMenuTagScreen.Show();
+          break;
         case 1:
-          //OwnerMenuTagScreen
+          ManagerMenuTagScreen.Show();
           break;
         case 2:
-          //ManagerMenuTagScreen
-          break;
-        case 3:
-          //SellerMenuTagScreen
-          break;
-        default:
+          System.Console.WriteLine("Teste 3");
+          // SellerMenuTagScreen.Show();
           break;
       }
     }
