@@ -1,7 +1,7 @@
 namespace MercadinhoBigBoom.Menu
 {
-    public class SellerMenuTagScreen
-    {
-        
-    }
+  public class SellerMenuScreen : MenuScreen
+  {
+
+  }
 }

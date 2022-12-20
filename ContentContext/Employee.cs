@@ -25,13 +25,13 @@ namespace MercadinhoBigBoom.ContentContext
       DateResignation = null;
     }
 
-    public string CPF { get; private set; }
-    public EContentSector Ocuppation { get; private set; }
-    public EcontentWorkShift Shift { get; private set; }
-    public double Salary { get; private set; }
-    public int Absences { get; private set; }
-    public DateTime DateAdmission { get; private set; }
-    public DateTime? DateResignation { get; private set; }
+    public string CPF { get; internal set; }
+    public EContentSector Ocuppation { get; internal set; }
+    public EcontentWorkShift Shift { get; internal set; }
+    public double Salary { get; internal set; }
+    public int Absences { get; internal set; }
+    public DateTime DateAdmission { get; internal set; }
+    public DateTime? DateResignation { get; internal set; }
 
     public bool Equals(Employee? other)
     {

@@ -5,4 +5,3 @@ using MercadinhoBigBoom.ContentContext.Enum;
 
 Console.WriteLine("Hello, World!");
 MenuLogin.Login();
-

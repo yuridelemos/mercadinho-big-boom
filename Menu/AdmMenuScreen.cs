@@ -3,11 +3,11 @@ using MercadinhoBigBoom.ContentContext.Enum;
 
 namespace MercadinhoBigBoom.Menu
 {
-  public class AdmMenuScreen
+  abstract class AdmMenuScreen
   {
-    public static List<Company> Companies = new List<Company>();
-    public static List<Employee> Employees = new List<Employee>();
-    static public void Show()
+    protected static List<Company> Companies = new List<Company>();
+    protected static List<Employee> Employees = new List<Employee>();
+    public virtual void Show()
     {
       Console.WriteLine("|==================================|");
       Console.WriteLine("|          Menu Principal          |");
@@ -16,22 +16,12 @@ namespace MercadinhoBigBoom.Menu
       Console.WriteLine("(2) - Inscrição de Funcionário");
       Console.WriteLine("(3) - Visualizar Fornecedores");
       Console.WriteLine("(4) - Visualizar quadro de Funcionários");
+      Console.WriteLine("(5) - Editar fornecedor");
+      Console.WriteLine("(6) - Editar funcionário");
       Console.Write("=====================================: ");
 
-      int test = int.Parse(Console.ReadLine());
-      switch (test)
-      {
-        case 1: SuplierRegistrationScreen(); break;
-        case 2: EmployeeRegistrationScreen(); break;
-        case 3: ReadListCompanies(); break;
-        case 4: ReadListEmployees(); break;
-        default:
-          Console.WriteLine("Opção digita é inválida, por favor tente novamente");
-          Show();
-          break;
-      }
     }
-    private static void SuplierRegistrationScreen()
+    protected virtual void SuplierRegistrationScreen()
     {
       Console.Clear();
       Console.WriteLine("|==================================|");
@@ -100,7 +90,7 @@ namespace MercadinhoBigBoom.Menu
       // Thread.Sleep(2000);
     }
 
-    private static void EmployeeRegistrationScreen()
+    protected virtual void EmployeeRegistrationScreen()
     {
       Console.Clear();
       Console.WriteLine("|=================================|");
@@ -157,24 +147,13 @@ namespace MercadinhoBigBoom.Menu
           break;
       }
       Show();
-
-      // Console.WriteLine($"Nome: {employee.Name}");
-      // Console.WriteLine($"Número de telefone: {employee.PhoneNumber}");
-      // Console.WriteLine($"Endereço: {employee.Address}");
-      // Console.WriteLine($"CPF: {employee.CPF}");
-      // Console.WriteLine($"Ocupação: {employee.Ocuppation}");
-      // Console.WriteLine($"Turno: {employee.Shift}");
-      // Console.WriteLine($"Salário: {employee.Salary}");
-      // Console.WriteLine($"Data de admissão: {employee.DateAdmission.ToString("dd/MM/yyyy")}");
-
     }
-    public static void ReadListCompanies()
+    protected virtual void ReadListCompanies()
     {
       var contador = 1;
       foreach (var company in Companies)
       {
         Console.WriteLine($"{contador++} Nome: {company.Name} CPF: {company.CNPJ}");
-
       }
       Console.WriteLine("(1) - Editar dados");
       Console.WriteLine("(2) - Voltar");
@@ -192,7 +171,7 @@ namespace MercadinhoBigBoom.Menu
       Show();
     }
 
-    public static void ReadListEmployees()
+    protected virtual void ReadListEmployees()
     {
       var contador = 1;
       foreach (var employee in Employees)
@@ -202,7 +181,7 @@ namespace MercadinhoBigBoom.Menu
       Show();
     }
 
-    private static void EditCompanies()
+    protected virtual void EditCompanies()
     {
       Console.WriteLine("Digite o número da empresa");
       Console.Write("===========: ");
@@ -253,7 +232,82 @@ namespace MercadinhoBigBoom.Menu
           Companies.ElementAt(chooser).CompanyRepresentative.PhoneNumber = Console.ReadLine();
           break;
       }
+    }
 
+    protected virtual void PrintEditEmployees(int chooser)
+    {
+      Console.WriteLine($"Nome: {Employees.ElementAt(chooser).Name}");
+      Console.WriteLine($"Número de telefone: {Employees.ElementAt(chooser).PhoneNumber}");
+      Console.WriteLine($"Endereço: {Employees.ElementAt(chooser).Address}");
+      Console.WriteLine($"CPF: {Employees.ElementAt(chooser).CPF}");
+      Console.WriteLine($"Ocupação: {Employees.ElementAt(chooser).Ocuppation}");
+      Console.WriteLine($"Turno: {Employees.ElementAt(chooser).Shift}");
+      Console.WriteLine($"Salário: {Employees.ElementAt(chooser).Salary}");
+      Console.WriteLine($"Faltas: {Employees.ElementAt(chooser).Absences}");
+      Console.WriteLine($"Data de admissão: {Employees.ElementAt(chooser).DateAdmission.ToString("dd/MM/yyyy")}");
+      Console.WriteLine($"Data de demissão: {Employees.ElementAt(chooser).DateResignation}");
+
+      Console.WriteLine("O que deseja editar?");
+      Console.WriteLine("(1) - Nome\n(2) - Número de telefone\n(3) - Endereço\n(4) - CPF\n(5) - Ocupação\n(6) - Turno");
+
+      var chooserEditor = int.Parse(Console.ReadLine());
+      switch (chooserEditor)
+      {
+        case 1:
+          Console.Write("Nome: ");
+          Employees.ElementAt(chooser).Name = Console.ReadLine();
+          break;
+        case 2:
+          Console.Write("Número de Telefone: ");
+          Employees.ElementAt(chooser).PhoneNumber = Console.ReadLine();
+          break;
+        case 3:
+          Console.Write("Endereço: ");
+          Employees.ElementAt(chooser).Address = Console.ReadLine();
+          break;
+        case 4:
+          Console.Write("CPF: ");
+          Employees.ElementAt(chooser).CPF = Console.ReadLine();
+          break;
+        case 5:
+          Console.Write("Cargo: ");
+          var ocuppation = int.Parse(Console.ReadLine());
+          Employees.ElementAt(chooser).Ocuppation = (EContentSector)ocuppation;
+          break;
+        case 6:
+          Console.Write("Turno: ");
+          var shift = int.Parse(Console.ReadLine());
+          Employees.ElementAt(chooser).Shift = (EcontentWorkShift)shift;
+          break;
+        case 7:
+          Console.Write("Salário: ");
+          Employees.ElementAt(chooser).Salary = double.Parse(Console.ReadLine());
+          break;
+        case 8:
+          Console.Write("Absences: ");
+          Employees.ElementAt(chooser).Absences = int.Parse(Console.ReadLine());
+          break;
+        case 9:
+          Console.Write("Data de admissão (DD/MM/YYYY): ");
+          Employees.ElementAt(chooser).DateAdmission = DateTime.Parse(Console.ReadLine());
+          break;
+        case 10:
+          Console.Write("Data de demissão (DD/MM/YYYY): ");
+          Employees.ElementAt(chooser).DateResignation = DateTime.Parse(Console.ReadLine());
+          break;
+      }
+
+      Thread.Sleep(2000);
+      Console.Clear();
+      Console.WriteLine("Funcionário editado com sucesso!");
+    }
+    protected virtual void EditEmployees()
+    {
+      ReadListEmployees();
+      Console.WriteLine("Digite o número do funcionário");
+      Console.Write("===========: ");
+      var chooser = int.Parse(Console.ReadLine());
+      chooser--;
     }
   }
 }
