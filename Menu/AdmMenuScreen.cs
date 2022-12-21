@@ -19,7 +19,6 @@ namespace MercadinhoBigBoom.Menu
       Console.WriteLine("(5) - Editar fornecedor");
       Console.WriteLine("(6) - Editar funcionário");
       Console.Write("=====================================: ");
-
     }
     protected virtual void SuplierRegistrationScreen()
     {
@@ -94,7 +93,7 @@ namespace MercadinhoBigBoom.Menu
     {
       Console.Clear();
       Console.WriteLine("|=================================|");
-      Console.WriteLine("|  Insira os dados da funcionário |");
+      Console.WriteLine("|  Insira os dados do funcionário |");
       Console.WriteLine("|=================================|");
       Console.Write("Nome: ");
       var Name = Console.ReadLine();
@@ -135,13 +134,13 @@ namespace MercadinhoBigBoom.Menu
       Console.WriteLine("|Funcionário cadastrado com sucesso|");
       Console.WriteLine("|==================================|");
 
-      Console.WriteLine("(1) - Cadastrar nova funcionário");
+      Console.WriteLine("(1) - Cadastrar novo funcionário");
       Console.WriteLine("(2) - Voltar para o menu");
       var chooser = int.Parse(Console.ReadLine());
 
       switch (chooser)
       {
-        case 1: SuplierRegistrationScreen(); break;
+        case 1: EmployeeRegistrationScreen(); break;
         case 2: Show(); break;
         default: //implementar algo para refazer a opção
           break;
@@ -178,7 +177,6 @@ namespace MercadinhoBigBoom.Menu
       {
         Console.WriteLine($"{contador++} Nome: {employee.Name} CPF: {employee.CPF}");
       }
-      Show();
     }
 
     protected virtual void EditCompanies()
@@ -234,23 +232,8 @@ namespace MercadinhoBigBoom.Menu
       }
     }
 
-    protected virtual void PrintEditEmployees(int chooser)
+    protected virtual void EditEmployees(int chooser, int chooserEditor)
     {
-      Console.WriteLine($"Nome: {Employees.ElementAt(chooser).Name}");
-      Console.WriteLine($"Número de telefone: {Employees.ElementAt(chooser).PhoneNumber}");
-      Console.WriteLine($"Endereço: {Employees.ElementAt(chooser).Address}");
-      Console.WriteLine($"CPF: {Employees.ElementAt(chooser).CPF}");
-      Console.WriteLine($"Ocupação: {Employees.ElementAt(chooser).Ocuppation}");
-      Console.WriteLine($"Turno: {Employees.ElementAt(chooser).Shift}");
-      Console.WriteLine($"Salário: {Employees.ElementAt(chooser).Salary}");
-      Console.WriteLine($"Faltas: {Employees.ElementAt(chooser).Absences}");
-      Console.WriteLine($"Data de admissão: {Employees.ElementAt(chooser).DateAdmission.ToString("dd/MM/yyyy")}");
-      Console.WriteLine($"Data de demissão: {Employees.ElementAt(chooser).DateResignation}");
-
-      Console.WriteLine("O que deseja editar?");
-      Console.WriteLine("(1) - Nome\n(2) - Número de telefone\n(3) - Endereço\n(4) - CPF\n(5) - Ocupação\n(6) - Turno");
-
-      var chooserEditor = int.Parse(Console.ReadLine());
       switch (chooserEditor)
       {
         case 1:
@@ -280,34 +263,20 @@ namespace MercadinhoBigBoom.Menu
           Employees.ElementAt(chooser).Shift = (EcontentWorkShift)shift;
           break;
         case 7:
-          Console.Write("Salário: ");
-          Employees.ElementAt(chooser).Salary = double.Parse(Console.ReadLine());
-          break;
-        case 8:
-          Console.Write("Absences: ");
-          Employees.ElementAt(chooser).Absences = int.Parse(Console.ReadLine());
-          break;
-        case 9:
-          Console.Write("Data de admissão (DD/MM/YYYY): ");
-          Employees.ElementAt(chooser).DateAdmission = DateTime.Parse(Console.ReadLine());
-          break;
-        case 10:
-          Console.Write("Data de demissão (DD/MM/YYYY): ");
-          Employees.ElementAt(chooser).DateResignation = DateTime.Parse(Console.ReadLine());
+          Employees.ElementAt(chooser).Absences++;
           break;
       }
-
+      if(chooserEditor > 0 && chooserEditor < 8)
+        System.Console.WriteLine("Edição feita com sucesso!");
       Thread.Sleep(2000);
       Console.Clear();
-      Console.WriteLine("Funcionário editado com sucesso!");
     }
-    protected virtual void EditEmployees()
+    protected virtual void PrintEditEmployees()
     {
       ReadListEmployees();
       Console.WriteLine("Digite o número do funcionário");
       Console.Write("===========: ");
-      var chooser = int.Parse(Console.ReadLine());
-      chooser--;
+
     }
   }
 }

@@ -24,11 +24,11 @@ namespace MercadinhoBigBoom.Menu
         switch ((int)employee.Ocuppation)
         {
           case 0:
-            // AdmMenuScreen.Show();
-            OwnerMenuScreen.Show();
+            var owner = new OwnerMenuScreen();
+            owner.Show();
             break;
           case 1:
-            ManagerMenuTagScreen.Show();
+            // ManagerMenuTagScreen.Show();
             break;
           case 2:
             System.Console.WriteLine("Teste 3");
