@@ -15,9 +15,10 @@ namespace MercadinhoBigBoom.Menu
       Console.WriteLine("(1) - Inscrição de Fornecedor");
       Console.WriteLine("(2) - Inscrição de Funcionário");
       Console.WriteLine("(3) - Visualizar Fornecedores");
-      Console.WriteLine("(4) - Visualizar quadro de Funcionários");
+      Console.WriteLine("(4) - Visualizar Funcionários");
       Console.WriteLine("(5) - Editar fornecedor");
       Console.WriteLine("(6) - Editar funcionário");
+      Console.WriteLine("(7) - Sair");
       Console.Write("=====================================: ");
     }
     protected virtual void SuplierRegistrationScreen()
@@ -152,22 +153,8 @@ namespace MercadinhoBigBoom.Menu
       var contador = 1;
       foreach (var company in Companies)
       {
-        Console.WriteLine($"{contador++} Nome: {company.Name} CPF: {company.CNPJ}");
+        Console.WriteLine($"{contador++} Nome: {company.Name} CNPJ: {company.CNPJ}");
       }
-      Console.WriteLine("(1) - Editar dados");
-      Console.WriteLine("(2) - Voltar");
-      Console.Write("===========: ");
-      int test = int.Parse(Console.ReadLine());
-      switch (test)
-      {
-        case 1: EditCompanies(); break;
-        case 2: Show(); break;
-        default:
-          Console.WriteLine("Opção digita é inválida. Voltando para o menu principal.");
-          Show();
-          break;
-      }
-      Show();
     }
 
     protected virtual void ReadListEmployees()
@@ -181,6 +168,7 @@ namespace MercadinhoBigBoom.Menu
 
     protected virtual void EditCompanies()
     {
+      ReadListCompanies();
       Console.WriteLine("Digite o número da empresa");
       Console.Write("===========: ");
       var chooser = int.Parse(Console.ReadLine());
@@ -266,7 +254,7 @@ namespace MercadinhoBigBoom.Menu
           Employees.ElementAt(chooser).Absences++;
           break;
       }
-      if(chooserEditor > 0 && chooserEditor < 8)
+      if (chooserEditor > 0 && chooserEditor < 8)
         System.Console.WriteLine("Edição feita com sucesso!");
       Thread.Sleep(2000);
       Console.Clear();

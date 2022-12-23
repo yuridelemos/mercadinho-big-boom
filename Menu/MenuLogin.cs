@@ -28,7 +28,8 @@ namespace MercadinhoBigBoom.Menu
             owner.Show();
             break;
           case 1:
-            // ManagerMenuTagScreen.Show();
+            var manager = new ManagerMenuScreen();
+            manager.Show();
             break;
           case 2:
             System.Console.WriteLine("Teste 3");
